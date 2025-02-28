@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CustomButton : Button
+public class AddonsButton : Button
 {
-    public static event Action<CustomButton> OnClick;
+    public static event Action<AddonsButton> OnClick;
 
     private bool _pressed = false;
     private float longPressDuration = 0.5f;
