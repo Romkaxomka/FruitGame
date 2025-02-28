@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d273a09a16b8dab4683d0a6cc06c16e1, type: 3}
+  m_Name: FruitSprites
+  m_EditorClassIdentifier: 
+  fruitPlateCfgs:
+  - fruitType: 0
+    plateState: 0
+    value: {fileID: -9196461945701603345, guid: b6f1d44f5dc235346824fe3c39e56af5, type: 3}
+  - fruitType: 0
+    plateState: 1
+    value: {fileID: 5727786294819561003, guid: 225aa6bb98688f446b0ab92eaaf416dd, type: 3}
+  - fruitType: 1
+    plateState: 0
+    value: {fileID: 1296907794018263966, guid: d21eebb04d390a54a8aff8cc7c5c2f81, type: 3}
+  - fruitType: 1
+    plateState: 1
+    value: {fileID: -1309522535346110910, guid: 750fd8d2725589d40b913a70bbed561b, type: 3}
+  - fruitType: 2
+    plateState: 0
+    value: {fileID: -8287435652899193867, guid: fee41faf24361d2489ca639c06004bbb, type: 3}
+  - fruitType: 2
+    plateState: 1
+    value: {fileID: 8172392939807510521, guid: 13360d50b5a76fb4a9dbce4dd3fadabc, type: 3}
