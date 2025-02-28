@@ -3,6 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Playables;
+using UnityEngine.UIElements;
 
 public class GamePanel : MonoBehaviour
 {
@@ -115,6 +116,7 @@ public class GamePanel : MonoBehaviour
     }
 
     bool isDraging = false;
+    int pointerId = -1;
     FruitPlate draggedFruit;
     Vector2 startDragPos;
 
@@ -123,6 +125,7 @@ public class GamePanel : MonoBehaviour
         if (!mergeLogic.CanPlay) return;
         if (isDraging) return;
         isDraging = true;
+        pointerId = eventData.pointerId;
 
         forDrag.rectTransform.position = fruitPlate.View.rectTransform.position;
         startDragPos = forDrag.rectTransform.anchoredPosition;
@@ -140,6 +143,7 @@ public class GamePanel : MonoBehaviour
     {
         if (!mergeLogic.CanPlay) return;
         if (!isDraging) return;
+        if(eventData.pointerId != pointerId) return;
 
         forDrag.rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
@@ -162,6 +166,7 @@ public class GamePanel : MonoBehaviour
     {
         if (!mergeLogic.CanPlay) return;
         if (!isDraging) return;
+        if (eventData.pointerId != pointerId) return;
 
         forDrag.gameObject.SetActive(false);
 
