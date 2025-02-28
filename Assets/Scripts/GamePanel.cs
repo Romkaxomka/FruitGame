@@ -121,6 +121,8 @@ public class GamePanel : MonoBehaviour
     public void OnBeginDrag(FruitPlate fruitPlate, PointerEventData eventData)
     {
         if (!mergeLogic.CanPlay) return;
+        if (isDraging) return;
+        isDraging = true;
 
         forDrag.rectTransform.position = fruitPlate.View.rectTransform.position;
         startDragPos = forDrag.rectTransform.anchoredPosition;
@@ -130,7 +132,6 @@ public class GamePanel : MonoBehaviour
         draggedFruit = fruitPlate;
         draggedFruit.View.canvasGroup.alpha = 0f;
         SetDraggedOn(null);
-        isDraging = true;
 
         Debug.Log($"draggedFruit: {draggedFruit.x} {draggedFruit.y}");
     }
@@ -138,6 +139,7 @@ public class GamePanel : MonoBehaviour
     public void OnDrag(FruitPlate fruitPlate, PointerEventData eventData)
     {
         if (!mergeLogic.CanPlay) return;
+        if (!isDraging) return;
 
         forDrag.rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
@@ -159,10 +161,9 @@ public class GamePanel : MonoBehaviour
     public void OnEndDrag(FruitPlate fruitPlate, PointerEventData eventData)
     {
         if (!mergeLogic.CanPlay) return;
+        if (!isDraging) return;
 
         forDrag.gameObject.SetActive(false);
-
-        isDraging = false;
 
         if (draggedOn != null)
         {
@@ -173,5 +174,7 @@ public class GamePanel : MonoBehaviour
         {
             draggedFruit.View.canvasGroup.alpha = 1f;
         }
+
+        isDraging = false;
     }
 }
